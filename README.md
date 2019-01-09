@@ -65,3 +65,7 @@ A blog application that allows an author to write and publish articles for the p
   ```
   python ./manage.py runserver
   ```
+
+# Deployment
+
+- Visit the live application [here](https://authors-app.herokuapp.com)
