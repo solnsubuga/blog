@@ -3,4 +3,13 @@
 
 from .base import *
 
-# TODO: add heroku specific configurations here.
+import dj_database_url
+from decouple import config
+
+DEBUG = False
+
+ALLOWED_HOSTS = ['authors-app.herokuapp.com']
+
+DATABASES = {
+    'default': dj_database_url.config(default=config('DATABASE_URL'))
+}
