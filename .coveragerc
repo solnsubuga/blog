@@ -1,0 +1,8 @@
+[run]
+branch=True
+omit = */envs/*
+       */virtualenvs/*
+       */virtualenv/*
+       */test*.py
+       */manage.py
+       */migrations/*
