@@ -1,0 +1,25 @@
+language: python
+
+cache:
+  directories:
+    - $HOME/.cache/pip
+
+python:
+  - "3.6"
+
+services:
+  - postgresql
+
+env:
+  - DB_USER=postgres DB_PASSWORD="" DB_NAME=blog DB_HOST=localhost
+
+# install requirements
+install:
+  - pip install -r requirements.txt
+
+script:
+  - coverage run ./manage.py test
+  - coverage report
+
+after_script:
+  - coveralls
