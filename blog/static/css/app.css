@@ -1,0 +1,28 @@
+body {
+    background-color: #f4f8f9;
+}
+
+.app-container {
+    margin-top: 50px;
+}
+
+.article {
+    margin: 5px 0px 10px 0px;
+}
+
+.article_content {
+    margin-left: -150px;
+}
+
+.article_author {
+    text-align: right;
+}
+
+.article_image {
+    height: 200px;
+    width: 200px;
+}
+
+.pagination {
+    margin-bottom: 100px;
+}

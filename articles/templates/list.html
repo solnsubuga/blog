@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if category %}
+ <h3>Articles tagged with "{{category}}" </h3>
+ {% else %}
+ <a href="/"><h3>All Articles</h3></a>
+{% endif %}
+<hr />
+{% if articles %}
+{% for article in articles %}
+    <div class="card article">
+    <div class="card-body">
+        <h4>{{ article.title }}</h4>
+        <div class="row">
+        <div class="col-md-4">
+                {% if article.image %}
+                <img class="img-thumbnail article_image" src="{{ article.image.url }}" alt="" />
+            {% endif %}
+        </div>
+          <div class="col-md-7 article_content">
+                <p>{{ article.content | truncatewords:40 | linebreaks }}</p>
+                <p class="article_author"><i>Authored on {{ article.created }} by {{ article.writer.username }}</i></p>
+                <p>Tags: <a class="btn btn-primary btn-sm" href="{% url 'articles:article_list' %}?category={{article.category.name}}">{{article.category.name}}</a></p>
+          </div>
+        </div>
+    </div>
+    </div>
+{% endfor %}
+{% include "pagination.html" with page=articles %}
+{% else %}
+ <div class="text-center">
+     <h5>Ooops, No published articles check back later</h5>
+ </div>
+{% endif %}
+{% endblock %}
