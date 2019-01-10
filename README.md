@@ -50,6 +50,7 @@ A blog application that allows an author to write and publish articles for the p
       DB_NAME=your-database-name
       DB_HOST=your-host
       PORT=5432
+      SECRET_KEY=your-secret-key
   ```
 
   then run `source .env`
@@ -60,12 +61,32 @@ A blog application that allows an author to write and publish articles for the p
   python ./manage.py migrate
   ```
 
+- Create an admin user
+
+  ```
+  python ./manage.py createsuperuser
+  ```
+
 - Run the application
 
   ```
   python ./manage.py runserver
   ```
 
+- Login into the application `localhost:8000/admin` using the credentials created above then create some categories and articles respectively to try out the application
+
+# Testing
+
+- To run tests use the command `
+  ```
+  - coverage run ./manage.py test
+  - coverage report
+  ```
+
 # Deployment
 
 - Visit the live application [here](https://authors-app.herokuapp.com)
+
+# License
+
+The project is licensed under MIT License.

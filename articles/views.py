@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views import View
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Q
@@ -32,3 +32,10 @@ class ArticleListView(View):
             'page': page, 'articles': articles,
             'category': category_name
         })
+
+
+class ArticleDetailView(View):
+    def get(self, request, pk, slug):
+        article = get_object_or_404(
+            Article, pk=pk, slug=slug, status='published')
+        return render(request, 'detail.html', {'article': article})

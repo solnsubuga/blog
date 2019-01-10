@@ -10,10 +10,6 @@ body {
     margin: 5px 0px 10px 0px;
 }
 
-.article_content {
-    margin-left: -150px;
-}
-
 .article_author {
     text-align: right;
 }
@@ -25,4 +21,14 @@ body {
 
 .pagination {
     margin-bottom: 100px;
+}
+
+.image_container {
+    height: 500px;
+}
+
+.detail_image {
+    width: 70%;
+    margin: 20px auto;
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.7);
 }
