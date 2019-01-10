@@ -5,7 +5,7 @@ from django.conf import settings
 class TimeStampedModel(models.Model):
     """Abstract model with timestamps
 
-    Inherit from this model to have timestamps added to parent model
+    Inherit from this model to have timestamps added to child model
     """
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
