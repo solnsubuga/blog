@@ -45,7 +45,7 @@ class Article(TimeStampedModel):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     status = models.CharField(
         max_length=50, choices=STATUS_CHOICES, default='draft')
-    image = models.ImageField(upload_to='articles/%Y/%m/%d',
+    image = models.ImageField(upload_to='articles',
                               blank=True)
 
     class Meta:

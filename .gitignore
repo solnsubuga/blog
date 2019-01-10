@@ -116,3 +116,6 @@ dmypy.json
 
 #vs code
 .vscode
+
+# development settings file
+dev.py
