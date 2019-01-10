@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<a href="/"><h3>All Articles</h3></a>
+<hr>
+<div class="card">
+        {% if article.image %}
+          <img src="{{ article.image.url }}" class="card-img-top detail_image" alt="...">
+        {% endif %}
+
+        <div class="card-body">
+
+          <h5 class="card-title">{{article.title}}</h5>
+          <p class="card-text">{{article.content}}</p>
+          <p class="article_author"><i>Authored on {{ article.created }} by {{ article.writer.username }}</i></p>
+          <p class="float-right">Tags: <a class="btn btn-primary btn-sm" href="{% url 'articles:article_list' %}?category={{article.category.name}}">{{article.category.name}}</a></p>
+</div>
+</div>
+{% endblock %}

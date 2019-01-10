@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from django.urls import reverse
 
 
 class TimeStampedModel(models.Model):
@@ -49,6 +50,11 @@ class Article(TimeStampedModel):
 
     class Meta:
         ordering = ('-created', )
+
+    def get_url(self):
+        """Absolute url for article """
+        return reverse('articles:article_detail',
+                       args=[self.id, self.slug])
 
     def __str__(self):
         return self.title

@@ -11,14 +11,14 @@
 {% for article in articles %}
     <div class="card article">
     <div class="card-body">
-        <h4>{{ article.title }}</h4>
+        <a href="{{article.get_url}}"><h4>{{ article.title }}</h4></a>
         <div class="row">
+        {% if article.image %}
         <div class="col-md-4">
-                {% if article.image %}
-                <img class="img-thumbnail article_image" src="{{ article.image.url }}" alt="" />
-            {% endif %}
+            <img class="img-thumbnail article_image" src="{{ article.image.url }}" alt="" />
         </div>
-          <div class="col-md-7 article_content">
+        {% endif %}
+          <div class="{% if article.image %} col-md-7 {% else %} col-md-12 {% endif %} article_content">
                 <p>{{ article.content | truncatewords:40 | linebreaks }}</p>
                 <p class="article_author"><i>Authored on {{ article.created }} by {{ article.writer.username }}</i></p>
                 <p>Tags: <a class="btn btn-primary btn-sm" href="{% url 'articles:article_list' %}?category={{article.category.name}}">{{article.category.name}}</a></p>

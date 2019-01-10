@@ -29,3 +29,10 @@ class ViewArticlesTestCase(BaseTestCase):
             reverse('articles:article_list'), 100)
         res = self.client.get(url)
         self.assertContains(res, self.articles[0].title)
+
+    def test_view_article(self):
+        """ Should render a single article"""
+        article = self.articles[0]
+        url = article.get_url()
+        res = self.client.get(url)
+        self.assertContains(res, article.title)
